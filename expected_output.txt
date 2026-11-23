@@ -1,0 +1,17 @@
+$ python3 solution.py
+CENTRAL DATABASE (SQLite):
+  (1, 'Issue certificate C-001', 'Registrar')
+  (2, 'Issue certificate C-002', 'Registrar')
+  (3, 'Revoke certificate C-001', 'Registrar')
+  (4, 'Issue certificate C-003', 'Registrar')
+SHARED-COPY EXPERIMENT (a fourth event does not resolve conflicts):
+CONFLICT DETECTED: (2, 'Issue certificate C-002', 'Registrar') versus (2, 'Issue certificate C-999', 'Registrar')
+Audit question: WHO is authorized to decide the correct record?
+PASS: central ledger stored; independently modified copies disagree.
+
+$ cat week01_ledger.csv
+seq,event,approved_by
+1,Issue certificate C-001,Registrar
+2,Issue certificate C-002,Registrar
+3,Revoke certificate C-001,Registrar
+4,Issue certificate C-003,Registrar
